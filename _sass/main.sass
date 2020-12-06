@@ -5,14 +5,21 @@ $gray-dark: #2f2f2f
 $gray-mid: #888888
 $gray-light: #f2f2f2
 
-$font-display: Georgia, serif
-$font-copy: Roboto, sans-serif
+$font-display: 'DM Serif Display', serif
+$font-copy: 'Castoro', serif
 
-$font-size-mobile: 1.15em
-$font-size-desktop: 1em
+$font-size-mobile: medium
+$font-size-desktop: medium
 
 $breakpoint-tablet: 768px
 $breakpoint-4k: 2560px
+
+*
+    font-family: $font-copy
+    font-size: $font-size-mobile
+
+    @media ( min-width: $breakpoint-tablet )
+        font-size: $font-size-desktop
 
 html, body
     display: flex
@@ -20,13 +27,9 @@ html, body
     flex-direction: column
     align-items: center
     width: 100%
-    height: 100%
+    min-height: 100%
     padding: 0
     margin: 0
-    font-size: $font-size-mobile
-
-    @media ( min-width: $breakpoint-tablet )
-        font-size: $font-size-desktop
 
 body
     background-color: $gray-light
@@ -36,26 +39,24 @@ body
     flex: 1
     flex-direction: column
     align-items: center
-    height: 100%
 
     @media ( min-width: $breakpoint-tablet )
         flex-direction: row
         width: 50%
-        align-items: flex-start
+        align-items: stretch
 
     @media (min-width: $breakpoint-4k)
         width: 35%
 
+section.content
+    flex: 1
+    background-color: white
+    padding: 2em
+    height: inherit
+
 h1
     font-family: $font-display
-
-p
-    font-family: $font-copy
-
-section.content
-    background-color: white
-    flex: 1
-    padding: 2em
+    font-size: x-large
 
 nav
     align-self: flex-start
@@ -67,6 +68,8 @@ nav
 
     @media ( min-width: $breakpoint-tablet )
         flex-direction: column
+        position: sticky
+        top: 0
 
 %link
     text-decoration: none
@@ -81,7 +84,6 @@ a
 
 .nav-link
     @extend %link
-    font-weight: bold
     margin-right: 1em
 
 .nav-link.active
