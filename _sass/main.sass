@@ -1,0 +1,88 @@
+$primary: #3ea4df
+$highlight: #df3ea4
+
+$gray-dark: #2f2f2f
+$gray-mid: #888888
+$gray-light: #f2f2f2
+
+$font-display: Georgia, serif
+$font-copy: Roboto, sans-serif
+
+$font-size-mobile: 1.15em
+$font-size-desktop: 1em
+
+$breakpoint-tablet: 768px
+$breakpoint-4k: 2560px
+
+html, body
+    display: flex
+    flex: 1
+    flex-direction: column
+    align-items: center
+    width: 100%
+    height: 100%
+    padding: 0
+    margin: 0
+    font-size: $font-size-mobile
+
+    @media ( min-width: $breakpoint-tablet )
+        font-size: $font-size-desktop
+
+body
+    background-color: $gray-light
+
+#main-container
+    display: flex
+    flex: 1
+    flex-direction: column
+    align-items: center
+    height: 100%
+
+    @media ( min-width: $breakpoint-tablet )
+        flex-direction: row
+        width: 50%
+        align-items: flex-start
+
+    @media (min-width: $breakpoint-4k)
+        width: 35%
+
+h1
+    font-family: $font-display
+
+p
+    font-family: $font-copy
+
+section.content
+    background-color: white
+    flex: 1
+    padding: 2em
+
+nav
+    align-self: flex-start
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    padding: 0.5em
+
+    @media ( min-width: $breakpoint-tablet )
+        flex-direction: column
+
+%link
+    text-decoration: none
+    color: $primary
+
+%link:hover, %link:active, %link:focus
+    @extend %link
+    color: $highlight
+
+a
+    @extend %link
+
+.nav-link
+    @extend %link
+    font-weight: bold
+    margin-right: 1em
+
+.nav-link.active
+    @extend %link, :active
