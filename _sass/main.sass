@@ -1,17 +1,19 @@
 $primary: #3ea4df
 $highlight: #df3ea4
+$secondary: #ffcf6f
 
 $gray-dark: #2f2f2f
 $gray-mid: #888888
 $gray-light: #f2f2f2
 
-$font-display: 'DM Serif Display', serif
+$font-display: 'Montserrat', sans-serif
 $font-copy: 'Castoro', serif
 
 $font-size-mobile: medium
 $font-size-desktop: medium
 
 $breakpoint-tablet: 768px
+$breakpoint-laptop: 1280px
 $breakpoint-4k: 2560px
 
 *
@@ -32,7 +34,7 @@ html, body
     margin: 0
 
 body
-    background-color: $gray-light
+    background-color: black
 
 #main-container
     display: flex
@@ -42,10 +44,13 @@ body
 
     @media ( min-width: $breakpoint-tablet )
         flex-direction: row
-        width: 50%
+        width: 80%
         align-items: stretch
 
-    @media (min-width: $breakpoint-4k)
+    @media ( min-width: $breakpoint-laptop )
+        width: 50%
+
+    @media ( min-width: $breakpoint-4k )
         width: 35%
 
 section.content
@@ -53,23 +58,18 @@ section.content
     background-color: white
     padding: 2em
     height: inherit
+    box-shadow: 0 0 2px 0 $gray-mid
+
+%heading
+    font-family: $font-display
 
 h1
-    font-family: $font-display
+    @extend %heading
+    font-size: xx-large
+
+h2
+    @extend %heading
     font-size: x-large
-
-nav
-    align-self: flex-start
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: flex-start
-    padding: 0.5em
-
-    @media ( min-width: $breakpoint-tablet )
-        flex-direction: column
-        position: sticky
-        top: 0
 
 %link
     text-decoration: none
@@ -82,9 +82,22 @@ nav
 a
     @extend %link
 
-.nav-link
-    @extend %link
-    margin-right: 1em
+.showcase-item
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-bottom: 1em
 
-.nav-link.active
-    @extend %link, :active
+    @media ( min-width: $breakpoint-tablet )
+        padding: 2em
+
+.showcase-description
+    font-style: italic
+
+.showcase-tags
+    font-size: small
+
+img
+    width: 100%
+    box-shadow: 0 1px 2px 0 $gray-mid

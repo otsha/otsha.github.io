@@ -1,0 +1,21 @@
+nav
+    align-self: flex-start
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    padding: 0.5em
+
+    @media ( min-width: $breakpoint-tablet )
+        flex-direction: column
+        position: sticky
+        top: 0
+
+.nav-link
+    @extend %link
+    margin-right: 1em
+    font-family: $font-display
+    font-size: x-large
+
+.nav-link.active
+    @extend %link, :active
