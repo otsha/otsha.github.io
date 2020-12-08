@@ -4,9 +4,8 @@ title: Home
 ---
 {% for item in site.showcase %}
 <article class='showcase-item'>
-    <h2>{{ item.name }}</h2>
-    <p class='showcase-tags'>{{ item.tags }}</p>
     <img src={{ item.preview }} />
+    <h2>{{ item.name }}</h2>
     <p class='showcase-description'>{{ item.description }}</p>
     <a href={{ item.url }}>Read More</a>
 </article>

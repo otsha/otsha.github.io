@@ -1,4 +1,5 @@
 <nav>
+    <a href='/'><h1 class='site-title'>otsha</h1></a>
     {% for item in site.data.nav %}
     <a href={{ item.link }} {% if page.url == item.link %} class='nav-link active' {% else %} class='nav-link' {% endif %}>
         {{ item.name }}
